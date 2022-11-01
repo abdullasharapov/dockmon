@@ -1,0 +1,23 @@
+http:
+  middlewares:
+    secureHeaders:
+      headers:
+        sslRedirect: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 31536000   
+             
+    user-auth:
+      basicAuth:
+        users:
+          - "admin:$apr1$7kp3LDkY$PejqZWVLbbgv.oA4Z2fC41"
+          
+tls:
+  options:
+    default:
+      minVersion: VersionTLS12
+      curvePreferences:
+        - secp521r1
+        - secp384r1
+      sniStrict: true
